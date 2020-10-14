@@ -6,6 +6,8 @@
     top: 0;
     width: 100%;
     padding: 10px 3%;
+    background-color: #fff;
+    z-index: 100;
     .header-wrapper {
         display: flex;
         justify-content: space-between;
@@ -16,8 +18,8 @@
             margin: 18px 0;
         }
         #header-nav {
-            @include tab-layout{
-                display:none;
+            @include tab-layout {
+                display: none;
             }
             .menu-lists {
                 display: flex;
