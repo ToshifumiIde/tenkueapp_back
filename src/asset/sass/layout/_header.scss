@@ -1,11 +1,13 @@
 .l-header {
+    background-color: #fff;
     box-shadow: 3px 3px 0 #f7f7f7;
     height: 80px;
     left: 0;
+    padding: 10px 3%;
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 10px 3%;
+    z-index: 100;
     .header-wrapper {
         display: flex;
         justify-content: space-between;
@@ -16,8 +18,8 @@
             margin: 18px 0;
         }
         #header-nav {
-            @include tab-layout{
-                display:none;
+            @include tab-layout {
+                display: none;
             }
             .menu-lists {
                 display: flex;
