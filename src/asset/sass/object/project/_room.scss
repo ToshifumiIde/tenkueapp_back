@@ -1,89 +1,152 @@
 .p-room {
     margin-top: 80px;
     padding-bottom: 75px;
+    @include tab-layout {
+        padding-bottom: 80px;
+    }
     @include pc-layout {
-        margin-top: 84px;
+        // margin-top: 80px;
         padding-bottom: 150px;
     }
-    .p-room-mv {
+    .p-room__mv {
         background-image: url(../../../../asset/image/room_04.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         width: 100%;
         height: 60vh;
+    }
+
+    .p-room__wrap .c-title,
+    .p-facilites .c-title {
+        margin: 0 auto 60px;
+        font-size: 6vw;
+        // line-height: 66px;
+        text-align: center;
+        margin-bottom: 40px;
         @include pc-layout {
-            height: 59vh;
+            font-size: 24px;
+        }
+        position: relative;
+        &::after {
+            background-color: #00478b;
+            border-radius: 1px;
+            bottom: -5px;
+            content: '';
+            display: block;
+            height: 2px;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+            width: 40px;
         }
     }
-    .p-room-container {
-        // background-color: blue;
+
+    .p-room__wrap {
         padding: 50px 5%;
+        @include tab-layout {
+            padding: 0 3%;
+        }
         @include pc-layout {
-            padding: 80px 0;
+            box-sizing: content-box;
+            padding: 80px 2.4%;
             max-width: 1024px;
             margin: 0 auto;
         }
-        .room-cards {
+
+        .p-room__inner {
             width: 100%;
+            background-color: green;
             .p-room__container {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                @include pc-layout {
-                    &:nth-child(even) {
-                        flex-direction: row;
-                    }
-                    &:nth-child(odd) {
+                &.p-room__container-reverse {
+                    @include pc-layout {
                         flex-direction: row-reverse;
                     }
                 }
-                .room-txt {
+                background-color: yellowgreen;
+                display: flex;
+                margin-bottom: 3.5rem;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100%;
+                @include tab-layout {
+                    flex-direction: row;
+                }
+                @include pc-layout {
+                    margin-bottom: 112px;
+                    flex-direction: row;
+                }
+                .p-room__txt {
+                    background-color: tomato;
+                    width: 100%;
+                    @include tab-layout {
+                        width: 47.5%;
+                    }
                     @include pc-layout {
                         width: 47.5%;
                     }
-                    background-color: tomato;
-                    h3 {
-                        // margin-bottom: ;
-                        font-size: 33px;
+                    .p-room__num {
+                        font-size: 32px;
+                        margin-bottom: 8px;
+                    }
+                    .p-room__subtitle {
+                        font-size: 32px;
                         line-height: 66px;
                     }
                     p {
                         font-size: 22px;
                         line-height: 44px;
+                        @include pc-layout {
+                            font-size: 16px;
+                            line-height: 32px;
+                        }
                     }
                 }
-                .room-img {
+                .p-room__img {
                     width: 100%;
-                    height: auto;
                     @include pc-layout {
                         width: 47.5%;
                     }
                 }
             }
         }
-        .c-title {
-            margin: 0 auto;
-            font-size: 33px;
-            line-height: 66px;
-            text-align: center;
-            margin-bottom: 40px;
-            @include sp-layout {
-                font-size: 24px;
-                line-height: 48px;
-            }
-            position: relative;
-            &::after {
-                content: '';
-                display: block;
-                width: 40px;
-                height: 2px;
-                background-color: $color-default;
-                bottom: -10%;
-                left: 50%;
-                transform: translateX(-50%);
-                position: absolute;
+        .facilites {
+            .p-room__container {
+                .p-room__subtitle {
+                    @include tab-layout {
+                        font-size: 3vw;
+                    }
+                    @include pc-layout {
+                        font-size: 24px;
+                        margin-bottom: 1rem;
+                    }
+                }
+                .p-room__text {
+                    font-size: 4vw;
+                    @include tab-layout {
+                        font-size: 2vw;
+                    }
+                    @include pc-layout {
+                        font-size: 16px;
+                        margin-bottom: 1rem;
+                    }
+                }
+                .p-facilites__img {
+                    width: 100%;
+                    height: auto;
+                    margin-bottom: 25px;
+                    @include tab-layout {
+                        width: 50%;
+                        margin-bottom: 50px;
+                    }
+                    @include pc-layout {
+                        width: 50%;
+                        margin-bottom: 50px;
+                    }
+                    img {
+                        width: 100%;
+                    }
+                }
             }
         }
     }
