@@ -5,33 +5,40 @@
         padding-bottom: 80px;
     }
     @include pc-layout {
-        // margin-top: 80px;
         padding-bottom: 150px;
     }
-    .p-room__mv {
+    .p-room__fv {
         background-image: url(../../../../asset/image/room_04.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        width: 100%;
         height: 60vh;
+        width: 100%;
     }
 
     .p-room__wrap .c-title,
     .p-facilites .c-title {
-        margin: 0 auto 60px;
         font-size: 6vw;
-        // line-height: 66px;
-        text-align: center;
+        margin: 0 auto;
         margin-bottom: 40px;
+        position: relative;
+        text-align: center;
+        @include tab-layout {
+            font-size: 3vw;
+            line-height: 46px;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+        }
         @include pc-layout {
             font-size: 24px;
+            line-height: 46px;
+            letter-spacing: 2px;
+            margin-bottom: 60px;
         }
-        position: relative;
         &::after {
             background-color: #00478b;
             border-radius: 1px;
-            bottom: -5px;
+            bottom: -7px;
             content: '';
             display: block;
             height: 2px;
@@ -43,26 +50,22 @@
     }
 
     .p-room__wrap {
-        padding: 50px 5%;
+        // background-color: blue;
+        padding: 0px 5%;
         @include tab-layout {
             padding: 0 3%;
         }
         @include pc-layout {
             box-sizing: content-box;
-            padding: 80px 2.4%;
             max-width: 1024px;
             margin: 0 auto;
+            padding: 77px 2.4%;
         }
 
         .p-room__inner {
             width: 100%;
-            background-color: green;
+            // background-color: green;
             .p-room__container {
-                &.p-room__container-reverse {
-                    @include pc-layout {
-                        flex-direction: row-reverse;
-                    }
-                }
                 background-color: yellowgreen;
                 display: flex;
                 margin-bottom: 3.5rem;
@@ -70,6 +73,7 @@
                 justify-content: space-between;
                 width: 100%;
                 @include tab-layout {
+                    display: flex;
                     flex-direction: row;
                 }
                 @include pc-layout {
@@ -86,12 +90,29 @@
                         width: 47.5%;
                     }
                     .p-room__num {
-                        font-size: 32px;
-                        margin-bottom: 8px;
+                        @include tab-layout{
+                            font-size: 4vw;
+                            font-weight: bold;
+                            letter-spacing: 3px;
+                            line-height: 64px;
+                            margin: 16px 0 8px;
+                            margin-bottom: 8px;
+                        }
+                        @include pc-layout {
+                            font-size: 32px;
+                            line-height: 64px;
+                            font-weight: bold;
+                            letter-spacing: 3px;
+                            margin: 16px 0 8px;
+                            margin-bottom: 8px;
+                        }
                     }
                     .p-room__subtitle {
-                        font-size: 32px;
-                        line-height: 66px;
+                        @include pc-layout {
+                            font-size: 24px;
+                            line-height: 48px;
+                            margin-bottom: 16px;
+                        }
                     }
                     p {
                         font-size: 22px;
@@ -108,6 +129,15 @@
                         width: 47.5%;
                     }
                 }
+
+                &.p-room__container-reverse {
+                    @include tab-layout {
+                        flex-direction: row-reverse;
+                    }
+                    @include pc-layout {
+                        flex-direction: row-reverse;
+                    }
+                }
             }
         }
         .facilites {
@@ -115,6 +145,7 @@
                 .p-room__subtitle {
                     @include tab-layout {
                         font-size: 3vw;
+                        margin-bottom: 18px;
                     }
                     @include pc-layout {
                         font-size: 24px;
@@ -125,6 +156,7 @@
                     font-size: 4vw;
                     @include tab-layout {
                         font-size: 2vw;
+                        margin-bottom: 18px;
                     }
                     @include pc-layout {
                         font-size: 16px;
