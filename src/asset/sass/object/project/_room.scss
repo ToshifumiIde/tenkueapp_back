@@ -1,35 +1,49 @@
 .p-room {
     margin-top: 80px;
-    padding-bottom: 75px;
+    @include sp-layout {
+        padding-bottom: 75px;
+    }
     @include tab-layout {
         padding-bottom: 80px;
     }
     @include pc-layout {
-        // margin-top: 80px;
         padding-bottom: 150px;
     }
-    .p-room__mv {
+
+    .p-room__fv {
         background-image: url(../../../../asset/image/room_04.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        width: 100%;
         height: 60vh;
+        width: 100%;
     }
 
     .p-room__wrap .c-title,
     .p-facilites .c-title {
-        margin: 0 auto 60px;
-        font-size: 6vw;
-        // line-height: 66px;
+        margin: 0 auto;
+        position: relative;
         text-align: center;
-        margin-bottom: 40px;
+        @include sp-layout {
+            font-size: 6vw;
+            line-height: 12vw;
+            margin-bottom: 40px;
+        }
+        @include tab-layout {
+            font-size: 3vw;
+            line-height: 6vw;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+        }
+
         @include pc-layout {
             font-size: 24px;
+            line-height: 46px;
+            letter-spacing: 2px;
+            margin-bottom: 60px;
         }
-        position: relative;
         &::after {
-            background-color: #00478b;
+            background-color: $color-primary;
             border-radius: 1px;
             bottom: -5px;
             content: '';
@@ -43,42 +57,46 @@
     }
 
     .p-room__wrap {
-        padding: 50px 5%;
+        @include sp-layout {
+            padding: 50px 5% 0;
+        }
         @include tab-layout {
-            padding: 0 3%;
+            padding: 75px 3% 0;
         }
         @include pc-layout {
             box-sizing: content-box;
-            padding: 80px 2.4%;
             max-width: 1024px;
             margin: 0 auto;
+            padding: 77px 2.4%;
         }
 
         .p-room__inner {
             width: 100%;
-            background-color: green;
-            .p-room__container {
-                &.p-room__container-reverse {
-                    @include pc-layout {
-                        flex-direction: row-reverse;
-                    }
-                }
-                background-color: yellowgreen;
-                display: flex;
+            .p-room__box {
                 margin-bottom: 3.5rem;
-                flex-direction: column;
-                justify-content: space-between;
                 width: 100%;
+                @include sp-layout {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    margin-bottom: 56px;
+                }
                 @include tab-layout {
+                    display: flex;
                     flex-direction: row;
+                    justify-content: space-between;
+                    margin-bottom: 104px;
                 }
                 @include pc-layout {
-                    margin-bottom: 112px;
+                    display: flex;
                     flex-direction: row;
+                    justify-content: space-between;
+                    margin-bottom: 112px;
                 }
                 .p-room__txt {
-                    background-color: tomato;
-                    width: 100%;
+                    @include sp-layout {
+                        width: 100%;
+                    }
                     @include tab-layout {
                         width: 47.5%;
                     }
@@ -86,16 +104,53 @@
                         width: 47.5%;
                     }
                     .p-room__num {
-                        font-size: 32px;
-                        margin-bottom: 8px;
+                        @include sp-layout {
+                            font-size: 8vw;
+                            font-weight: bold;
+                            letter-spacing: 4px;
+                            line-height: 16vw;
+                            margin-bottom: 8px;
+                        }
+                        @include tab-layout {
+                            font-size: 4vw;
+                            font-weight: bold;
+                            letter-spacing: 3px;
+                            line-height: 8vw;
+                            margin-bottom: 8px;
+                        }
+                        @include pc-layout {
+                            font-size: 32px;
+                            font-weight: bold;
+                            letter-spacing: 3px;
+                            line-height: 64px;
+                            margin: 18px 0 8px;
+                        }
                     }
                     .p-room__subtitle {
-                        font-size: 32px;
-                        line-height: 66px;
+                        @include sp-layout {
+                            font-size: 6vw;
+                            margin-bottom: 16px;
+                        }
+                        @include tab-layout {
+                            font-size: 3vw;
+                            margin-bottom: 16px;
+                        }
+                        @include pc-layout {
+                            font-size: 24px;
+                            line-height: 48px;
+                            margin-bottom: 16px;
+                        }
                     }
-                    p {
-                        font-size: 22px;
-                        line-height: 44px;
+                    .p-room__text {
+                        @include sp-layout {
+                            font-size: 4vw;
+                            line-height: 8vw;
+                            margin-bottom: 16px;
+                        }
+                        @include tab-layout {
+                            font-size: 2vw;
+                            line-height: 4vw;
+                        }
                         @include pc-layout {
                             font-size: 16px;
                             line-height: 32px;
@@ -103,18 +158,42 @@
                     }
                 }
                 .p-room__img {
-                    width: 100%;
+                    @include sp-layout {
+                        width: 100%;
+                    }
+                    @include tab-layout {
+                        align-items: center;
+                        display: flex;
+                        width: 47.5%;
+                    }
                     @include pc-layout {
                         width: 47.5%;
+                    }
+                }
+
+                &.p-room__box-reverse {
+                    @include sp-layout {
+                        flex-direction: column;
+                    }
+                    @include tab-layout {
+                        flex-direction: row-reverse;
+                    }
+                    @include pc-layout {
+                        flex-direction: row-reverse;
                     }
                 }
             }
         }
         .facilites {
-            .p-room__container {
+            .p-room__box {
                 .p-room__subtitle {
+                    @include sp-layout {
+                        font-size: 6vw;
+                        margin-bottom: 16px;
+                    }
                     @include tab-layout {
                         font-size: 3vw;
+                        margin-bottom: 18px;
                     }
                     @include pc-layout {
                         font-size: 24px;
@@ -122,9 +201,13 @@
                     }
                 }
                 .p-room__text {
-                    font-size: 4vw;
+                    @include sp-layout {
+                        font-size: 4vw;
+                        margin-bottom: 16px;
+                    }
                     @include tab-layout {
                         font-size: 2vw;
+                        margin-bottom: 18px;
                     }
                     @include pc-layout {
                         font-size: 16px;
@@ -132,19 +215,17 @@
                     }
                 }
                 .p-facilites__img {
-                    width: 100%;
-                    height: auto;
-                    margin-bottom: 25px;
+                    @include sp-layout {
+                        margin-bottom: 25px;
+                        width: 100%;
+                    }
                     @include tab-layout {
-                        width: 50%;
                         margin-bottom: 50px;
+                        width: 50%;
                     }
                     @include pc-layout {
-                        width: 50%;
                         margin-bottom: 50px;
-                    }
-                    img {
-                        width: 100%;
+                        width: 50%;
                     }
                 }
             }

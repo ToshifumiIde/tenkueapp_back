@@ -3,54 +3,57 @@
     box-shadow: 3px 3px #f7f7f7;
     height: 80px;
     left: 0;
-    letter-spacing: 1.55px;
     padding: 10px 3%;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
+
     .l-header__wrapper {
         align-items: center;
         display: flex;
         height: 60px;
         justify-content: space-between;
         position: relative;
+
         .l-header__logo {
             display: block;
-            height: 25px;
+            height: 24px;
             margin: 18px 0;
-            width: 246px;
+            width: 244px;
         }
+
         #l-header__nav {
             @include tab-layout {
                 display: none;
             }
+
             .l-menu__lists {
                 display: flex;
-                margin: 8px 0;
             }
+
             .l-header__nav__list {
                 margin-left: 30px;
-                padding: 3px 16px 3px 16px;
+                padding: 3px 16px;
                 &:hover {
                     background-color: #eee;
                     transition: 0.5s;
                 }
             }
+
             .l-header__nav__list a {
                 color: $color-default;
                 display: inline-block;
                 font-size: 16px;
                 font-weight: 400;
-                height: 36px;
-                line-height: 38px;
+                height: 32px;
+                letter-spacing: 0.1rem;
+                line-height: 32px;
                 text-decoration: none;
             }
         }
+
         #hamburgerMenu {
-            @include pc-layout {
-                display: none;
-            }
             cursor: pointer;
             display: flex;
             flex-direction: column;
@@ -58,6 +61,12 @@
             position: relative;
             width: 48px;
             z-index: 1000;
+            @include sp-layout {
+                margin-right: 7px;
+            }
+            @include pc-layout {
+                display: none;
+            }
 
             .l-hamburger__line {
                 background-color: $color-default;
@@ -69,9 +78,10 @@
                     background-color: #fff;
                 }
             }
+
             .line1 {
-                top: 33%;
                 right: 25%;
+                top: 33%;
                 width: 25px;
                 &.is-clicked {
                     right: 30%;
@@ -80,31 +90,30 @@
                     width: 20px;
                 }
             }
+
             .line2 {
-                width: 20px;
                 right: 25%;
                 top: 50%;
+                width: 20px;
                 &.is-clicked {
                     opacity: 0;
                 }
             }
+
             .line3 {
-                width: 15px;
                 right: 25%;
                 top: 66%;
+                width: 15px;
                 &.is-clicked {
+                    right: 30%;
+                    top: 50%;
                     transform: rotate(-45deg);
                     width: 20px;
-                    top: 50%;
-                    right: 30%;
                 }
             }
         }
 
         .l-nav__toggle__menu {
-            @include pc-layout {
-                display: none;
-            }
             background-color: $color-default;
             display: none;
             height: 100vh;
@@ -112,39 +121,72 @@
             position: fixed;
             top: 0;
             transition: all 0.5s ease-in-out;
+            visibility: hidden;
             width: 100%;
             z-index: 100;
-            visibility: hidden;
+            @include pc-layout {
+                display: none;
+            }
             &.is-clicked {
                 display: block;
-                visibility: visible;
                 transition: 0.5s;
+                visibility: visible;
                 @include pc-layout {
                     display: none;
                 }
             }
+
             .l-nav__container {
                 height: 100%;
                 position: relative;
                 width: 100%;
+
                 .l-header-nav__lists {
-                    left: 50%;
                     position: absolute;
-                    top: 40%;
+                    left: 50%;
                     transform: translate(-50%, -50%);
+                    @include sp-layout {
+                        top: 44%;
+                    }
+                    @include tab-layout {
+                        top: 44%;
+                    }
+
                     .l-header-nav__list {
                         color: $color-light;
                         list-style: none;
-                        margin-bottom: 1.6rem;
                         opacity: 0;
                         text-align: center;
-                        width: 30vw;
-                        @include tab-layout {
-                            width: 20vw;
+                        @include sp-layout {
+                            height: 10vw;
+                            margin-bottom: 5vw;
+                            width: 35vw;
+                            vertical-align: baseline;
                         }
+                        @include tab-layout {
+                            height: 5vw;
+                            margin-bottom: 1.4rem;
+                            width: 18vw;
+                        }
+
+                        a {
+                            color: $color-light;
+                            font-weight: 400;
+                            font-style: normal;
+                            @include sp-layout {
+                                font-size: 4vw;
+                                line-height: 8vw;
+                                vertical-align: center;
+                            }
+                            @include tab-layout {
+                                font-size: 2vw;
+                                letter-spacing: 0.1rem;
+                                vertical-align: baseline;
+                            }
+                        }
+
                         &:hover {
                             background-color: rgba(150, 150, 150, 0.2);
-
                             transition: 0.6s;
                         }
                         &:first-child {
@@ -161,26 +203,19 @@
                         }
                         &:nth-child(5) {
                             animation: fade 0.5s ease-in-out 0.8s 1 normal forwards;
-                            // transition-delay: 0.8s;
-                        }
-                        a {
-                            color: $color-light;
-                            line-height: 2;
-                            font-weight: 400;
-                            font-style: normal;
-                            @include tab-layout {
-                                font-size: 2vw;
-                            }
                         }
                     }
+
                     @keyframes fade {
                         0% {
-                            transform: rotateY(-70deg) translateY(100px);
                             opacity: 0;
+                            scale: 0.7;
+                            transform: rotateY(70deg) translateY(100px);
                         }
                         100% {
-                            transform: rotateY(0deg) translateY(0px);
                             opacity: 1;
+                            scale: 1;
+                            transform: rotateY(0deg) translateY(0px);
                         }
                     }
                 }

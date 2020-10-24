@@ -1,18 +1,18 @@
 'use strict';
 
 {
-    const nav = document.getElementById('hamburgerMenu');
-    const hamburgerLines = document.querySelectorAll('.l-hamburger__line');
-    const navMenu = document.querySelector('.l-nav__toggle__menu');
-    const navLists = document.querySelectorAll('.l-nav__toggle__menu .l-header-nav__list');
+    const NAV = document.getElementById('hamburgerMenu');
+    const HAMBURGER_LINES = document.querySelectorAll('.l-hamburger__line');
+    const NAV_MENU = document.querySelector('.l-nav__toggle__menu');
+    const NAV_LISTS = document.querySelectorAll('.l-nav__toggle__menu .l-header-nav__list');
 
-    nav.addEventListener('click', () => {
-        hamburgerLines.forEach(hamLine => {
+    NAV.addEventListener('click', () => {
+        HAMBURGER_LINES.forEach(hamLine => {
             hamLine.classList.toggle('is-clicked');
         });
-        navLists.forEach(navList => {
-            navList.classList.toggle('is-clicked');
+        NAV_LISTS.forEach(NAV_LIST => {
+            NAV_LIST.classList.toggle('is-clicked');
         });
-        navMenu.classList.toggle('is-clicked');
+        NAV_MENU.classList.toggle('is-clicked');
     });
 }
